@@ -26,7 +26,13 @@ git clone https://github.com/CiaranMcAndrew/pi-k3s.git
 cd pi-k3s
 ```
 
-4. Run the setup script
+4. Set node password environment variable
+
+```
+export NODEPASSWORD=passw0rd
+```
+
+5. Run the setup script
 
 ```
 sh controller/scripts/setup-controller.sh
@@ -36,10 +42,11 @@ Or to cleanup a mistake
 
 ```
 cd ~
-rm pi-k3s
+rm -rf pi-k3s
 
-git clone https://github.com/CiaranMcAndrew/pi-k3s.git
+git clone -b concept https://github.com/CiaranMcAndrew/pi-k3s.git
 cd pi-k3s
 
 sh controller/scripts/setup-controller.sh
+.
 ```

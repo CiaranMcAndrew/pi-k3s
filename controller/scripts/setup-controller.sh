@@ -3,6 +3,7 @@ sudo apt-get install -y sshpass
 pipx ensurepath
 pipx install ansible-core
 
+echo $(ls)
 cp ../etc /
 
 cd
