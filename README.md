@@ -29,7 +29,7 @@ cd pi-k3s
 4. Set node password environment variable
 
 ```
-export NODEPASSWORD=passw0rd
+export NODEPASSWORD=mypassword
 ```
 
 5. Run the setup script
