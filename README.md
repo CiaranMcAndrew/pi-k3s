@@ -31,3 +31,15 @@ cd pi-k3s
 ```
 sh controller/scripts/setup-controller.sh
 ```
+
+Or to cleanup a mistake
+
+```
+cd ~
+rm pi-k3s
+
+git clone https://github.com/CiaranMcAndrew/pi-k3s.git
+cd pi-k3s
+
+sh controller/scripts/setup-controller.sh
+```
