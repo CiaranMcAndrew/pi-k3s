@@ -46,6 +46,6 @@ rm -rf pi-k3s
 
 git clone -b concept https://github.com/CiaranMcAndrew/pi-k3s.git
 cd pi-k3s/controller/scripts/
-sh setup-controller.sh
+bash setup-controller.sh
 .
 ```
