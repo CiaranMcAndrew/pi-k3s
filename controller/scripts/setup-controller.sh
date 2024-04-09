@@ -7,7 +7,7 @@ pipx install ansible-core
 
 sudo cp -r ../etc /
 
-cd
+# Create ssh key
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 ssh-keygen -t rsa -N '' <<< $'\ny' >/dev/null 2>&1
@@ -27,5 +27,5 @@ ansible cube -m ping
 sshpass -p "$NODEPASSWORD" ansible cube -m apt -a "name=iptables state=present"
 
 # Reboot nodes
-sshpass -p "$NODEPASSWORD" ansible workers -b -m shell -a "reboot"
+sshpass -p "$NODEPASSWORD" ansible workers -b -m shell -a "sudo reboot"
 .
