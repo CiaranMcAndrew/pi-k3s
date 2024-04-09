@@ -24,8 +24,8 @@ scp -r ../../node/ pi@node02.local:/
 ansible cube -m ping
 
 # Setup iptables
-echo "$NODEPASSWORD" | ansible cube -m apt -a "name=iptables state=present" --become -K
+sshpass -p "$NODEPASSWORD" ansible cube -m apt -a "name=iptables state=present"
 
 # Reboot nodes
-ansible workers -b -m shell -a "reboot"
+sshpass -p "$NODEPASSWORD" ansible workers -b -m shell -a "reboot"
 .
