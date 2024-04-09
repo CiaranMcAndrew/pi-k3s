@@ -17,8 +17,8 @@ sshpass -p "$NODEPASSWORD" ssh-copy-id -i ~/.ssh/id_rsa.pub pi@node01.local
 sshpass -p "$NODEPASSWORD" ssh-copy-id -i ~/.ssh/id_rsa.pub pi@node02.local
 
 # Copy files to nodes
-scp -r ../../node/ pi@node01.local:/
-scp -r ../../node/ pi@node02.local:/
+#scp -r ../../node/ pi@node01.local:/
+#scp -r ../../node/ pi@node02.local:/
 
 # Ping nodes using ansible
 ansible cube -m ping
