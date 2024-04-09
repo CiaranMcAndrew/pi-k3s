@@ -3,13 +3,8 @@
 con01  ansible_connection=local
 
 [workers]
-node01  ansible_connection=ssh
-node02  ansible_connection=ssh
-node03  ansible_connection=ssh
-node04  ansible_connection=ssh
-node05  ansible_connection=ssh
-node06  ansible_connection=ssh
-node07  ansible_connection=ssh
+node01.local  ansible_connection=ssh
+node02.local  ansible_connection=ssh
 
 [cube:children]
 control
