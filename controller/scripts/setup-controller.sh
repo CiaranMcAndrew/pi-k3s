@@ -53,7 +53,7 @@ echo "Running ansible setup"
 ansible cube -m ping
 
 # Setup iptables
-sshpass -p "$NODEPASSWORD" ansible cube -m apt -a "name=iptables state=present ignore_unreachable=true"
+sshpass -p "$NODEPASSWORD" ansible cube -m apt -a "name=iptables state=present"
 
 # Reboot nodes
 sshpass -p "$NODEPASSWORD" ansible workers -b -m shell -a "sudo reboot"
