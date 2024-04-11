@@ -15,11 +15,11 @@ ssh-keygen -t rsa -N '' <<< $'\ny' >/dev/null 2>&1
 
 # Copy ssh key to nodes
 for i in $(seq 1 10); 
-    (
+    do {
         node=$(printf 'node%02d\n' "$i")
         echo "Copying ssh key to node: $node"
         sshpass -p "$NODEPASSWORD" ssh-copy-id -i ~/.ssh/id_rsa.pub "pi@$node.local"
-     ) || {
+     } || {
         echo "Node: $node not available"
     }
 done
