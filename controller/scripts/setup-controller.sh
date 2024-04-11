@@ -35,7 +35,7 @@ ssh-keygen -t rsa -N '' <<< $'\ny' >/dev/null 2>&1
 # Copy ssh key to nodes
 for i in $(seq 1 "$NODES"); 
     do {
-        node=$(printf 'node%02d\n' "$i")
+        NAME=$(printf 'node%02d\n' "$i")
         echo "Copying ssh key to node: $NAME"
         sshpass -p "$NODEPASSWORD" ssh-copy-id -i ~/.ssh/id_rsa.pub "pi@$NAME.local"
      } || {
