@@ -31,7 +31,7 @@ chmod 700 ~/.ssh
 ssh-keygen -t rsa -N '' <<< $'\ny' >/dev/null 2>&1
 
 # Copy ssh key to nodes
-for i in $(seq 1 $NODES); 
+for i in $(seq 1 "$NODES"); 
     do {
         node=$(printf 'node%02d\n' "$i")
         echo "Copying ssh key to node: $NAME"
@@ -51,7 +51,7 @@ echo "Running ansible setup"
 ansible cube -m ping
 
 # Setup iptables
-sshpass -p "$NODEPASSWORD" ansible cube -m apt -a "name=iptables state=present"
+sshpass -p "$NODEPASSWORD" ansible cube -m apt -a "name=iptables state=present ignore_unreachable=true"
 
 # Reboot nodes
 sshpass -p "$NODEPASSWORD" ansible workers -b -m shell -a "sudo reboot"
