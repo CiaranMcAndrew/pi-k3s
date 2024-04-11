@@ -17,6 +17,8 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+echo "Running setup for quantity of nodes: $NODES"
+
 sudo apt-get install -y pipx
 sudo apt-get install -y sshpass
 pipx ensurepath
