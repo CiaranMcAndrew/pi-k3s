@@ -8,16 +8,18 @@ pipx install ansible-core
 sudo cp -r ../etc /
 
 # Create ssh key
+echo "Generating ssh key"
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 ssh-keygen -t rsa -N '' <<< $'\ny' >/dev/null 2>&1
 
 # Copy ssh key to nodes
 for i in $(seq 1 10); 
-    node=$(printf 'node%02d\n' "$i");
-    {
+    (
+        node=$(printf 'node%02d\n' "$i")
+        echo "Copying ssh key to node: $node"
         sshpass -p "$NODEPASSWORD" ssh-copy-id -i ~/.ssh/id_rsa.pub "pi@$node.local"
-    } || {
+     ) || {
         echo "Node: $node not available"
     }
 done
@@ -28,6 +30,8 @@ done
 #scp -r ../../node/ pi@node01.local:/
 #scp -r ../../node/ pi@node02.local:/
 
+
+echo "Running ansible setup"
 # Ping nodes using ansible
 ansible cube -m ping
 
